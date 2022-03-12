@@ -9,7 +9,7 @@
   }
 
 body{
-    background-image: url("../404ECO/FRONT/Slike/PozadinskaSlika.png");
+    background-image: url("Slike/PozadinskaSlika.png");
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Electrolize', sans-serif;
@@ -32,10 +32,31 @@ body{
 
 .sing_h1{
     font-size: 30px;
-    color: white;
+    color: var(--svetla);
     margin-top: 0px;
 }
-.regex_error{
+
+.BrightText{
+  font-size: 15px;
+  color: var(--svetla);
+  font-weight: bold;
+}
+
+.radioL{
+  color: var(--svetla);
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 2%;
+}
+
+.radioR{
+  color: var(--svetla);
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10%;
+}
+
+.RegexWarning{
     font-weight: bolder;
     color: #ff0000;
   }
@@ -73,6 +94,21 @@ body{
     padding-left: 10px;
   }
 
+  [type=tel] {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    border: 0;
+    border-bottom: 1px solid var(--boja2);
+    height: 45px;
+    line-height: 45px;  
+    margin-bottom: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    color: rgba(0,0,0,.4);
+    padding-left: 10px;
+  }
+
   .dugme{
     margin-top: 25px;
     width: 50%;
@@ -92,6 +128,11 @@ body{
     /*outline: none;*/
     border-color: var(--PurpleMain);
   }
+
+.Hidden2{
+  display: none;
+}
+
   .dugme1{
     margin-top: 25px;
     width: 50%;
