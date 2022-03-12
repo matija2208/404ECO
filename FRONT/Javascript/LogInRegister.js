@@ -1,38 +1,33 @@
 var valid_test;
+var extraLogin = 0;
 
 function everything_filled(entries){
     if(entries.ime_input.value.length == 0){
         valid_test = false;
-        document.getElementById("EmptyNameWarning").classList.remove("hidden");
-    } else document.getElementById("EmptyNameWarning").classList.add("hidden");
+        document.getElementById("EmptyNameWarning").classList.remove("Hidden2");
+    } else document.getElementById("EmptyNameWarning").classList.add("Hidden2");
 
     if(entries.mail_input.value.length == 0){
         valid_test = false;
-        document.getElementById("EmptyMailWarning").classList.remove("hidden");
-    } else document.getElementById("EmptyMailWarning").classList.add("hidden");
+        document.getElementById("EmptyMailWarning").classList.remove("Hidden2");
+    } else document.getElementById("EmptyMailWarning").classList.add("Hidden2");
 
     if(entries.pass_input.value.length == 0){
         valid_test = false;
-        document.getElementById("EmptyPassWarning").classList.remove("hidden");
-    } else document.getElementById("EmptyPassWarning").classList.add("hidden");
+        document.getElementById("EmptyPassWarning").classList.remove("Hidden2");
+    } else document.getElementById("EmptyPassWarning").classList.add("Hidden2");
 
     if(entries.pass_repeat.value.length == 0){
         valid_test = false;
-        document.getElementById("EmptyRepeatWarning").classList.remove("hidden");
-    } else document.getElementById("EmptyRepeatWarning").classList.add("hidden");
-}
+        document.getElementById("EmptyRepeatWarning").classList.remove("Hidden2");
+    } else document.getElementById("EmptyRepeatWarning").classList.add("Hidden2");
 
-function regex_valid_name(entries){
-    var pattern = /^[A-Za-z0-9]{1,30}$/;
-    var tekst = entries.ime_input.value;
-    var test = tekst.match(pattern);
 
-    if (test == null) {
-        document.getElementById("ErrorNameWarning").classList.remove("hidden");
-        valid_test = false;
-    } else{
-      console.log("validirano ime korisnika...");
-      document.getElementById("ErrorNameWarning").classList.add("hidden");
+    if(extraLogin){
+        if(entries.tel_input.value.length == 0 ){
+            valid_test = false;
+            document.getElementById("BadTelephoneInput").classList.remove("Hidden2");
+        } else document.getElementById("BadTelephoneInput").classList.add("Hidden2");
     }
 }
 
@@ -42,26 +37,23 @@ function regex_valid_mail(entries){
     var test = tekst.match(pattern);
 
     if (test == null) {
-        document.getElementById("ErrorMailWarning").classList.remove("hidden");
+        document.getElementById("ErrorMailWarning").classList.remove("Hidden2");
         valid_test = false;
     } else{
       console.log("validiran email korisnika...");
-      document.getElementById("ErrorMailWarning").classList.add("hidden");
+      document.getElementById("ErrorMailWarning").classList.add("Hidden2");
     }
 }
 
 function regex_valid_pass(entries){
-   var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-   var tekst = entries.pass_input.value;
-   var test = tekst.match(pattern);
-
-   if (test == null) {
-        document.getElementById("ErrorPassWarning").classList.remove("hidden");
-        valid_test = false;
-    } else{
-      console.log("validirana lozinka korisnika...");
-      document.getElementById("ErrorPassWarning").classList.add("hidden");
-    }
+   var pattern = entries.pass_input.value.length;
+   if(pattern<8){
+     valid_test = false;
+     document.getElementById("ErrorPassWarning").classList.remove("Hidden2");
+   }else{
+    console.log("validirana lozinka korisnika...");
+    document.getElementById("ErrorPassWarning").classList.add("Hidden2");
+   }
 }
 
 function regex_valid_repeat(entries){
@@ -69,10 +61,10 @@ function regex_valid_repeat(entries){
     var repeatPass = entries.pass_repeat.value;
     if(password != repeatPass){
         valid_test = false;
-        document.getElementById("ErrorRepeatWarning").classList.remove("hidden");
+        document.getElementById("ErrorRepeatWarning").classList.remove("Hidden2");
     } else{
         console.log("validirana ponovljena lozinka korisnika...");
-        document.getElementById("ErrorRepeatWarning").classList.add("hidden");
+        document.getElementById("ErrorRepeatWarning").classList.add("Hidden2");
     }
 }
 
@@ -116,7 +108,6 @@ async function ValidirajRegister(){
     valid_test = true;
     var entries = document.getElementById("forma");
     everything_filled(entries);
-    regex_valid_name(entries);
     regex_valid_mail(entries)
     regex_valid_pass(entries);
     regex_valid_repeat(entries);
@@ -134,7 +125,7 @@ async function ValidirajRegister(){
             await registruj(entries);
             location.href="Pocetna.html";
         }else{
-            document.getElementById("SameMailWarning").classList.remove("hidden");
+            document.getElementById("SameMailWarning").classList.remove("Hidden2");
         }
     } 
     else
@@ -193,7 +184,7 @@ async function Provera()
     if(t)//Ako prodje if znaci da je unet postojeci mail i password
     {
         //dodati pravljenje kolacica sa vrednoscu korisnikovog id-a
-        document.getElementById("LoginError").classList.add("hidden");
+        document.getElementById("LoginError").classList.add("Hidden2");
         if(localStorage.getItem("id")===null)
         {
             localStorage.setItem("id",id);
@@ -203,7 +194,21 @@ async function Provera()
     }
     else
     {
-        document.getElementById("LoginError").classList.remove("hidden"); //dodati poruku da je omasen mail ili password
+        document.getElementById("LoginError").classList.remove("Hidden2"); //dodati poruku da je omasen mail ili password
         console.log(0);
     }
+}
+
+function showDiv(){
+    var thediv = document.getElementById("ExtraInfoDiv");
+    thediv.classList.remove("Hidden2");
+
+    extraLogin = 1;
+}
+
+function hideDiv(){
+    var thediv = document.getElementById("ExtraInfoDiv");
+    thediv.classList.add("Hidden2");
+
+    extraLogin = 0;
 }
