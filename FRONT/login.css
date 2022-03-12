@@ -9,7 +9,7 @@
   }
 
 body{
-    background-image: url("Slike/PozadinskaSlika.png");
+    background-image: url("../404ECO/FRONT/Slike/PozadinskaSlika.png");
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Electrolize', sans-serif;
@@ -20,7 +20,8 @@ body{
 .log-box{
     width: 60%;
     height: 80%;
-    background-color: var(--PurpleMain);
+    background-color: var(--boja2);
+    border: var(--boja5) solid 5px;
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -47,7 +48,7 @@ body{
     margin: 0 auto;
     width: 80%;
     border: 0;
-    border-bottom: 1px solid var(--PurpleMain);
+    border-bottom: 1px solid var(--boja2);
     height: 45px;
     line-height: 45px;  
     margin-bottom: 10px;
@@ -62,7 +63,7 @@ body{
     margin: 0 auto;
     width: 80%;
     border: 0;
-    border-bottom: 1px solid var(--PurpleMain);
+    border-bottom: 1px solid var(--boja2);
     height: 45px;
     line-height: 45px;  
     margin-bottom: 10px;
@@ -76,31 +77,17 @@ body{
     margin-top: 25px;
     width: 50%;
     border: 0;
-    background-color:white;
+    background-color:var(--svetla);
     border-radius: 5px;
     height: 50px;
-    color: var(--PurpleMain);
+    color: var(--boja5);
     font-weight: bold;
     font-size: 1em;
   }
   .dugme:hover{
-    background-color: var(--WhiteMain);
+    background-color: var(--boja3);
   }
 
-.nazad{
-  margin-top: 25px;
-  width: 50%;
-  border: 0;
-  background-color: var(--PurpleMain);
-  border-radius: 5px;
-  height: 50px;
-  color: white;
-  font-weight: bold;
-  font-size: 1em;
-}
-.nazad:hover{
-  background-color: var(--PurpleMain);
-}
   [type='text']:focus {
     /*outline: none;*/
     border-color: var(--PurpleMain);
@@ -111,30 +98,30 @@ body{
     border: 0;
     border-radius: 5px;
     height: 50px;
-    color: white;
+    color: var(--boja5);
     font-weight: bold;
     font-size: 1em;
-    background-color:var(--PurpleMain);
-    border: 2px dashed white;
+    background-color:var(--boja1);
+    border: 2px dashed var(--boja5);
     padding: 1%;
     text-decoration: none;
   }
   .dugme1:hover{
-    background-color: #6e073a;
+    background-color: var(--boja3);
   } 
 #dugmenazad{
   margin-top: 25px;
   width: 50%;
   border: 0;
-  background-color:white;
+  background-color:var(--svetla);
   border-radius: 5px;
   height: 50px;
-  color: var(--PurpleMain);
+  color: var(--boja5);
   font-weight: bold;
   font-size: 1.1em;
   text-decoration: none;
   padding: 1%;
 }
 #dugmenazad:hover{
-  background-color: var(--WhiteMain);
+  background-color: var(--boja3);
 }
