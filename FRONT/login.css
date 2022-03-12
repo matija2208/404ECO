@@ -6,11 +6,10 @@
     --boja3: #20c29f;
     --boja4: #0a4282;
     --boja5: #009245;
-  
   }
 
-  body{
-    background-image: url("../FRONT/Slike/PozadinskaSlika.png");
+body{
+    background-image: url("Slike/PozadinskaSlika.png");
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Electrolize', sans-serif;
@@ -69,6 +68,21 @@
     display: block;
     margin: 0 auto;
     width: 80%;
+    border: 0;
+    border-bottom: 1px solid var(--boja2);
+    height: 45px;
+    line-height: 45px;  
+    margin-bottom: 10px;
+    font-size: 1em;
+    color:  rgba(0,0,0,.4);
+    border-radius: 5px;
+    padding-left: 10px;
+  }
+
+  [type=number] {
+    display: block;
+    margin: 0 auto;
+    width: 4%;
     border: 0;
     border-bottom: 1px solid var(--boja2);
     height: 45px;
@@ -167,6 +181,7 @@
 #dugmenazad:hover{
   background-color: var(--boja3);
 }
+
 /* ---------------------------------------------------------------------------------------------------------- */
 .formHeadings{
   text-align: left;
@@ -176,13 +191,16 @@
 }
 
 .dropzone {
-  border: 4px dashed #ccc;
+  border: 4px dashed var(--svetla);
   height: 200px;
   position: relative;
   margin-right: auto;
   margin-left: auto;
   max-width: 50%;
   margin-bottom: 20px;
+
+  color: var(--svetla);
+  font-weight: bold;
 }
 
 .info {
@@ -197,8 +215,32 @@
   width: 100%
 }
 
-#ubaci_sliku{
-  color: var(--svetla);
-  font-size: 30px;
-  margin-left: 10%;
+.dropzone_narrate{
+    font-size: 30px;
+    color: var(--svetla);
+    margin-top: 0px;
+    margin-left: 2px;
+}
+
+hr {
+  height:3px;
+  border-width:0;
+  background-color: var(--boja5)
+}
+
+.odg_input{
+  width: 60%;
+
+  display: inline;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 17.25%;
+    border: 0;
+    border-bottom: 1px solid var(--boja2);
+    height: 45px;
+    line-height: 45px;  
+    margin-bottom: 10px;
+    font-size: 1em;
+    color:  rgba(0,0,0,.4);
+    border-radius: 5px;
 }
