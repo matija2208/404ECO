@@ -69,25 +69,45 @@ function regex_valid_repeat(entries){
 }
 
 async function registruj(entries){
-    var korisnicko_ime = entries.ime_input.value;
-    var e_mail_korisnika = entries.mail_input.value;
-    var lozinka_korisnika = entries.pass_input.value;
-
-    var newUser={
-        userName:korisnicko_ime,
-        email:e_mail_korisnika,
-        password:lozinka_korisnika
-    };
-
-    try
+    link = "http://localhost:3000"
+    if(!extraLogin)
     {
-        var res=await axios.post("http://localhost:3000/api/users",newUser);
-        //console.log(res);
+        let newUser={
+            userName:entries.ime_input.value,
+            email:entries.mail_input.value,
+            password:entries.pass_input.value
+        };
+        try
+        {
+            var res=await axios.post(link + "/api/users",newUser);
+            //console.log(res);
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
     }
-    catch(err)
+    else
     {
-        console.log(err);
+        let newUser={
+            userName:entries.ime_input.value,
+            email:entries.mail_input.value,
+            password:entries.pass_input.value,
+            brojTelefona:entries.tel_input.value,
+            opis:entries.opisInput.value
+        };
+        try
+        {
+            var res=await axios.post(link + "/api/users",newUser);
+            //console.log(res);
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
     }
+    
+    
 }
 
 async function getData()
@@ -123,7 +143,7 @@ async function ValidirajRegister(){
         });
         if(t){
             await registruj(entries);
-            location.href="Pocetna.html";
+            //location.href="Pocetna.html";
         }else{
             document.getElementById("SameMailWarning").classList.remove("Hidden2");
         }
