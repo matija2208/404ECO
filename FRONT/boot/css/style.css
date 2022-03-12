@@ -13,6 +13,14 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Electrolize', sans-serif;
+    content: "";
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
 }
 
 a {
@@ -521,8 +529,14 @@ section {
   font-size: 18px;
   margin-top: 150px;
 }
+@media  (max-width:990px) {
+  #tekst_teme{
+    margin-top: 0px;
+  }
+}
 #kartice{
   width: 320px;
+
 }
 #kartice_centriranje{
   content: "";
@@ -532,5 +546,13 @@ margin-right: auto;
 display: flex;
 flex-wrap: wrap;
 justify-content: space-evenly;
+
+}
+#pozadina_kartic{
+  width: 100%;
+  background-color: var(--svetla);
 }
 
+#strelica{
+  background-color: var(--boja2);
+}
