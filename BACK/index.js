@@ -67,6 +67,7 @@ app.get("/:file", function(req,res){
                 userName:req.body.userName,
                 password:req.body.password,
                 tipKorisnika:"Korisnik",
+                poeni:0,
 
                 brojTelefona:req.body.brojTelefona,
                 opis:req.body.opis
@@ -87,10 +88,19 @@ app.get("/:file", function(req,res){
         }
     });
     
-    app.put("/api/users/:id", async function(req,res){
+    app.put("/api/users/:mod/:id", async function(req,res){
         try{
             const USER = await user.findById(req.params.id);
-            USER.tipKorisnika=req.body.tipKorisnika;
+            
+            if(req.params.mod==0)
+            {
+                USER.tipKorisnika=req.body.tipKorisnika;
+            }
+            else
+            {
+                USER.poeni+=req.body.poeni;
+            }
+
             await USER.save();
             res.json({
                 uspesno:true,

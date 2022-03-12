@@ -21,7 +21,11 @@ const UserSchema = new mongoose.Schema({
         trim:true,
         required:true
     },
-
+    poeni:{
+        type:Number,
+        required:true
+    },
+    
     brojTelefona:{
         type:String,
         trim:true,
