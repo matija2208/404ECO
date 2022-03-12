@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const baza = require("./BAZA/baza");
 const user = require("./BAZA/korisnik");
+const post = require("./BAZA/post");
 
 const PORT=3000;
 
@@ -130,4 +131,79 @@ app.get("/:file", function(req,res){
         }
     });
 
+//PostAPI
+    app.get("/api/posts", async function(req,res){
+        try{
+            const all_posts = await post.find();
+            res.json({
+                uspesno:true,
+                postss:all_posts
+            });
+        }
+        catch(err){
+            res.send({
+                uspesnost:false,
+                poruka:err.message
+            });
+        }
+    });
+
+    app.get("/api/posts/:id", async function(req,res){
+        try{
+            const POST = await post.findById(req.params.id);
+            res.json({
+                uspesno:true,
+                postss:POST
+            });
+        }
+        catch(err){
+            res.send({
+                uspesnost:false,
+                poruka:err.message
+            });
+        }
+    });
+
+    app.post("/api/posts", async function(req,res){
+        try{
+            const new_post = new post({
+                naslov:req.body.naslov,
+                tekst:req.body.tekst,
+                slika:req.body.slika,
+                brojPitanja:req.body.brojPitanja,
+                pitanja:req.body.pitanja,
+                idKorisnika:req.body.idKorisnika
+            });
+
+            const saved_post = await new_post.save();
+
+            res.json({
+                uspesneost:true
+            });
+        }
+        catch(err){
+            res.send({
+                uspesnost:false,
+                poruka:err.message
+            });
+        }
+    });
+
+    app.delete("/api/posts/:id", async function(req,res){
+        try{
+            const POST = await post.findById(req.params.id);
+            await POST.delete();
+            res.json({
+                uspesno:true
+            });
+        }
+        catch(err){
+            res.send({
+                uspesnost:false,
+                poruka:err.message
+            });
+        }
+    });
+
+    
 
