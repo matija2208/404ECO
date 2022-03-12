@@ -495,6 +495,7 @@ section {
   color: #444444;
   font-size: 14px;
   background: #f7fbfe;
+  width: 100%;
 }
 #footer .social-links a {
   font-size: 18px;
@@ -569,5 +570,68 @@ justify-content: space-evenly;
 }
 
 #strelica{
-  background-color: var(--boja2);
+  background-color: var(--boja4);
+}
+/*--------------------------------------------------------------
+# post
+--------------------------------------------------------------*/
+#post{
+  display: block;
+  margin-top: 80px;
+  content: "";
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#post_naslov{
+  color: var(--boja5);
+  font-size: 40px;
+  text-align: center;
+  margin-right: 0;
+}
+#tema_post{
+  margin-bottom: 60px;
+  color: var(--boja5);
+  font-size: 40px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  #tema_post {
+    font-size: 30px;
+  }
+}
+#post_tekst{
+  color:var(--boja4);
+  font-size: 18px;
+  margin: 10 px;
+}
+.post{
+  background-color: #5bea9790;
+  border-radius: 5px;
+  border: var(--boja4) solid 3px;
+}
+#kviz_pristup{
+  margin-bottom: 80px;
+  margin-top: 80px;
+  color: var(--boja5);
+  font-size: 30px;
+  text-align: center;
+}
+#kviz_pristup_dugme{
+  margin-bottom: 80px;
+  margin-top: 80px;
+  color: var(--boja4);
+  font-size: 30px;
+  text-align: center;
+}
+#kviz_pristup_dugme:hover{
+  color: var(--boja3);
+}
+.slika_post{
+  border-radius: 5px;
+  border: var(--boja4) solid 3px;
+  margin-top: 10px;
+  width: 750px;
 }
