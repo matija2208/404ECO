@@ -42,6 +42,12 @@ var PostSchema = new mongoose.Schema({
     pitanja:[{
         type:PitanjeSchema,
         required:true
+    }],
+
+    pokusali:[{
+        type:String,
+        trim:true,
+        required:true    
     }]
 
 });
