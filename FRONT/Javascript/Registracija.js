@@ -143,7 +143,7 @@ async function ValidirajRegister(){
         });
         if(t){
             await registruj(entries);
-            location.href="Pocetna.html";
+            location.href="Login.html";
         }else{
             document.getElementById("SameMailWarning").classList.remove("Hidden2");
         }
@@ -206,7 +206,7 @@ async function Provera()
         localStorage.setItem("id",id);
         //console.log(localStorage.getItem("id"));
         
-        location.href="Pocetna.html";
+        location.href="Login.html";
     }
     else
     {
