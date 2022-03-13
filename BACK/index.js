@@ -172,7 +172,8 @@ app.get("/:file", function(req,res){
                 slika:req.body.slika,
                 brojPitanja:req.body.brojPitanja,
                 pitanja:req.body.pitanja,
-                idKorisnika:req.body.idKorisnika
+                idKorisnika:req.body.idKorisnika,
+                pokusali:[]
             });
 
             const saved_post = await new_post.save();
@@ -193,6 +194,23 @@ app.get("/:file", function(req,res){
         try{
             const POST = await post.findById(req.params.id);
             await POST.delete();
+            res.json({
+                uspesno:true
+            });
+        }
+        catch(err){
+            res.send({
+                uspesnost:false,
+                poruka:err.message
+            });
+        }
+    });
+
+    app.put("/api/posts/:id", async function(req,res){
+        try{
+            const POST = await post.findById(req.params.id);
+            POST.pokusali.push(req.body.id);
+            await POST.save();
             res.json({
                 uspesno:true
             });

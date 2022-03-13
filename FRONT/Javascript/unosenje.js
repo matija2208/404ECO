@@ -144,6 +144,7 @@ async function objaviPost(){
     try{
         var res = await axios.post(LINK + "/api/posts",new_post);
         console.log(res);
+        location.href="Pocetna.html";
     }
     catch(err){
         console.log(err);
