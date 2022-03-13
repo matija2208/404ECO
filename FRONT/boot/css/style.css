@@ -323,7 +323,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: url("../img/hero-bg.jpg") center center;
+  background: url("../../Slike/pocetna.jpeg") center center;
   background-size: cover;
   position: relative;
   margin-top: 70px;
@@ -331,7 +331,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero:before {
   content: "";
-  background: rgba(56, 64, 70, 0.7);
+  background: url("../../Slike/pocetna.jpeg") center center;
   position: absolute;
   bottom: 0;
   top: 0;
