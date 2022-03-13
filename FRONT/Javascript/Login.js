@@ -28,7 +28,7 @@ async function Provera()
         if((i.email===userName || i.userName===userName)&&(i.password==password))
         {
             localStorage.setItem("id",i._id);
-            location.href="/Pocetna.html";
+            location.href="index.html";
         }
     });
 
