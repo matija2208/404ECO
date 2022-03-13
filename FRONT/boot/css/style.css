@@ -482,7 +482,7 @@ section {
   transition: 0.3s;
 }
 .team .member .social a:hover {
-  color: #3498db;
+  color: var(--boja5);
 }
 .team .member .social i {
   font-size: 18px;
@@ -494,13 +494,13 @@ section {
 #footer {
   color: #444444;
   font-size: 14px;
-  background: #f7fbfe;
+  background: var(--boja2);
   width: 100%;
 }
 #footer .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #3498db;
+  background: var(--boja5);
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -512,7 +512,7 @@ section {
   transition: 0.3s;
 }
 #footer .social-links a:hover {
-  background: #5faee3;
+  background: var(--boja3);
   color: #fff;
   text-decoration: none;
 }
