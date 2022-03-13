@@ -24,6 +24,7 @@
 
   <!-- Template Main CSS File -->
   <link href="boot/css/style.css" rel="stylesheet">
+  <link href="boot/css/style-post.css" rel="stylesheet">
 
 </head>
 
@@ -65,11 +66,26 @@
               </p>   
               </div>
               <img src="Slike/PozadinskaSlika.png" class="img-fluid slika_post" /> 
+              <div class="container">
+                <div class="row kartica levo" id = "${post._id}" onclick = "bigBoy(this.id)">
+                  <div class="col-lg-6" class="post-kartica">
+                      <div class="post">    
+                          <h7 class="naslov">${post.naslov}</h7>   
+                      </div>
+                      <img src="${post.slika}" class="img-fluid slika" style="max-width: 60%; margin-left: 15%;" /> 
+                  </div>
+                  <div class="col-lg-6 pt-4 pt-lg-0">
+                    <form id="tekst_kartice">
+                      <input type="radio" name="pitanja"><span>Prvi odgovor</span><br>
+                      <input type="radio" name="pitanja"><span>Prvi odgovor</span><br>
+                      <input type="radio" name="pitanja"><span>Prvi odgovor</span>
+                    </form>
+                  </div>
+              </div>
+                
+              </div>      
               
-          <div id="kviz_pristup">
-               <a href="#"id="kviz_pristup_dugme" >PRISTUPI KVIZU</a></div> 
-          </div>
-          
+              
 
       </div>
     </section>
