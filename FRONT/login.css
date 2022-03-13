@@ -82,7 +82,7 @@ body{
   [type=number] {
     display: block;
     margin: 0 auto;
-    width: 4%;
+    width: 8%;
     border: 0;
     border-bottom: 1px solid var(--boja2);
     height: 45px;

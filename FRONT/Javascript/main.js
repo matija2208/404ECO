@@ -218,18 +218,41 @@ async function getUsername(){
   }
 }
 
+async function getType(){
+  var id = localStorage.getItem("id");
+  if(id === null)
+  {
+      return "";
+  }
+  else
+  {
+    try{
+      var user = await axios.get("http://localhost:3000/api/users/" + id);
+      return user.data.user.tipKorisnika;
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
+}
+
 async function izmenanava()
 {
   var username = await getUsername();
-
+  var tip=await getType();
   if(username !== "")
   {
     var nav = document.getElementById("prijavi_regist");
     var text = `
-                <span id="nav_user">&nbsp;&nbsp;&nbsp;${username} &nbsp;&nbsp;</span>
-                <button onclick = "odjaviSe()" id="odjavi-dugme">ODJAVI SE</button>`;
+                <span id = "span-nav"><span id="nav_user">&nbsp;&nbsp;&nbsp;${username} &nbsp;&nbsp;</span>
+                <button onclick = "odjaviSe()" id="odjavi-dugme">ODJAVI SE</button></span>`;
     nav.innerHTML = "";
     nav.innerHTML = text;
+  }
+  if(tip==="Edukator")
+  {
+    var panjkovic=document.getElementById("panjkovic");
+    panjkovic.innerHTML='<a class="nav-link scrollto" href="unosenje.html">Unesi</a>';
   }
 }
 

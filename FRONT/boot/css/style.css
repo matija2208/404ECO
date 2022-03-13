@@ -632,7 +632,7 @@ justify-content: space-evenly;
   border-radius: 5px;
   border: var(--boja4) solid 3px;
   margin-top: 10px;
-  width: 750px;
+  width: 500px;
 }
 
 .glavnaText{
@@ -648,4 +648,35 @@ justify-content: space-evenly;
   border: 0;
   border-radius: 10px;
   padding: 5px;
+  display: inline;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--boja4);
+}
+#span-nav{
+  display: inline;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: #4f5a62;
+}
+@media (max-width: 988px) {
+  #span-nav{
+    margin-left: 40%;
+  }
+}
+@media (max-width: 580px) {
+  #span-nav{
+    margin-left: 30%;
+  }
+}
+@media (max-width: 540px) {
+  #span-nav{
+    margin-left: 20%;
+  }
+}
+@media (max-width: 510px) {
+  #span-nav{
+    margin-left: 15%;
+  }
 }
