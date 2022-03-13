@@ -635,3 +635,7 @@ justify-content: space-evenly;
   margin-top: 10px;
   width: 750px;
 }
+
+.glavnaText{
+  color: var(--boja4)!important;
+}
