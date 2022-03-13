@@ -1,3 +1,20 @@
+var link;
+
+function reportInfo(vars, showType = false) {
+    if (showType === true); //console.log(typeof vars);
+    //console.log(vars);
+}
+
+function addImg(ele, content) {
+    var myDIV = document.querySelector(ele);
+    var newContent = document.createElement('div');
+    newContent.innerHTML = content;
+
+    while (newContent.firstChild) {
+        myDIV.appendChild(newContent.firstChild);
+    }
+}
+
 var feedback = function(res) {
     reportInfo(res, true);
     if (res.success === true) {
@@ -93,9 +110,10 @@ function validPosting(){
     }
 }
 
-function objaviPost(){
+async function objaviPost(){
+    var LINK="http://localhost:3000";
     var entries = document.getElementById("formaPost");
-    var questionNum = entries.num_pitanja_input.value;
+    
     var arr = [];
 
     for(let i = 1; i <= entries.num_pitanja_input.value; i++){
@@ -114,5 +132,20 @@ function objaviPost(){
         });
     }
 
-    console.log(arr);
+    var new_post={
+        naslov:entries.naslov_input.value,
+        tekst:entries.sadrzaj_input.value,
+        slika:link,
+        brojPitanja:entries.num_pitanja_input.value,
+        idKorisnika:localStorage.getItem("id"),
+        pitanja:arr
+    };
+
+    try{
+        var res = await axios.post(LINK + "/api/posts",new_post);
+        console.log(res);
+    }
+    catch(err){
+        console.log(err);
+    }
 }

@@ -136,7 +136,7 @@ async function ValidirajRegister(){
         var users = await getData();
         var t=true;
         users.forEach(i => {
-            if(i.email===entries.mail_input.value)
+            if(i.email===entries.mail_input.value || i.userName===entries.ime_input.value)
             {
                 t=false;
             }
@@ -179,9 +179,6 @@ function getCookie(cname) {
 
 async function Provera()
 {
-
-    
-
     let x=getCookie("username");
     console.log(x);
 
@@ -205,11 +202,10 @@ async function Provera()
     {
         //dodati pravljenje kolacica sa vrednoscu korisnikovog id-a
         document.getElementById("LoginError").classList.add("Hidden2");
-        if(localStorage.getItem("id")===null)
-        {
-            localStorage.setItem("id",id);
-            console.log(localStorage.getItem("id"));
-        }
+        
+        localStorage.setItem("id",id);
+        //console.log(localStorage.getItem("id"));
+        
         location.href="Pocetna.html";
     }
     else
