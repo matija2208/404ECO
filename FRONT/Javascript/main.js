@@ -199,3 +199,44 @@
   });
 
 })()
+
+async function getUsername(){
+  var id = localStorage.getItem("id");
+  if(id === null)
+  {
+      return "";
+  }
+  else
+  {
+    try{
+      var user = await axios.get("http://localhost:3000/api/users/" + id);
+      return user.data.user.userName;
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
+}
+
+async function izmenanava()
+{
+  var username = await getUsername();
+
+  if(username !== "")
+  {
+    var nav = document.getElementById("prijavi_regist");
+    var text = `
+                <span id="nav_user">&nbsp;&nbsp;&nbsp;${username} &nbsp;&nbsp;</span>
+                <button onclick = "odjaviSe()" id="odjavi-dugme">ODJAVI SE</button>`;
+    nav.innerHTML = "";
+    nav.innerHTML = text;
+  }
+}
+
+function odjaviSe()
+{
+  localStorage.removeItem("id");
+  location.reload();
+}
+
+izmenanava();
